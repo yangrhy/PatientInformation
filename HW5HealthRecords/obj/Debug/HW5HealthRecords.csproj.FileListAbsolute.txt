@@ -1,0 +1,12 @@
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.csprojAssemblyReference.cache
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.Form1.resources
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.Properties.Resources.resources
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.csproj.GenerateResource.cache
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.csproj.CoreCompileInputs.cache
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\bin\Debug\PatientsInfo.mdf
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\bin\Debug\PatientsInfo_log.ldf
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\bin\Debug\HW5HealthRecords.exe.config
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\bin\Debug\HW5HealthRecords.exe
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\bin\Debug\HW5HealthRecords.pdb
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.exe
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.pdb
