@@ -61,17 +61,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="PatientNewEntry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="PatientNewEntry.Designer.cs">
+      <DependentUpon>PatientNewEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="Patient.cs" />
+    <Compile Include="PatientsInfoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientsInfoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PatientTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientTable.Designer.cs">
+      <DependentUpon>PatientTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="PatientNewEntry.resx">
+      <DependentUpon>PatientNewEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientTable.resx">
+      <DependentUpon>PatientTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,7 +95,19 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="PatientsInfoDataSet.xsc">
+      <DependentUpon>PatientsInfoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PatientsInfoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PatientsInfoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PatientsInfoDataSet.xss">
+      <DependentUpon>PatientsInfoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -118,6 +144,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>PatientsInfo.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\States.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

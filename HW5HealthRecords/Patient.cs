@@ -24,6 +24,8 @@ namespace HW5HealthRecords
         public string state { get; set; }
         public string zip { get; set; }
         public string phoneNumber { get; set; }
+        public double maxHeartRate { get; set; }
+        public string targetHeartRate { get; set; }
 
         public void setBirthDate(int year, int month, int day)
         {
@@ -59,6 +61,16 @@ namespace HW5HealthRecords
             }
 
             return bmiValue;
+        }
+
+        public void setMaxHeartRate()
+        {
+            this.maxHeartRate = (220 - this.age);
+        }
+
+        public void setTargetHeartRange()
+        {
+            this.targetHeartRate = $"{this.maxHeartRate * 0.5} - {this.maxHeartRate * 0.8}";
         }
     }
 }
