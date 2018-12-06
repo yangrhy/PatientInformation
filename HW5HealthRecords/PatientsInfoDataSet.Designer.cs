@@ -479,7 +479,7 @@ namespace HW5HealthRecords {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TableRow AddTableRow(int Patient_ID, string First_Name, string Last_Name, string Birth_Date, int Age, string Address, string City, string State, int Zip_Code, string Phone_Number, decimal BMI, string Maximum_Heart_Rate, string Target_Heart_Rate_Range) {
+            public TableRow AddTableRow(int Patient_ID, string First_Name, string Last_Name, string Birth_Date, int Age, string Address, string City, string State, int Zip_Code, string Phone_Number, string BMI, string Maximum_Heart_Rate, string Target_Heart_Rate_Range) {
                 TableRow rowTableRow = ((TableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Patient_ID,
@@ -562,7 +562,7 @@ namespace HW5HealthRecords {
                 base.Columns.Add(this.columnZip_Code);
                 this.columnPhone_Number = new global::System.Data.DataColumn("Phone Number", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhone_Number);
-                this.columnBMI = new global::System.Data.DataColumn("BMI", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnBMI = new global::System.Data.DataColumn("BMI", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBMI);
                 this.columnMaximum_Heart_Rate = new global::System.Data.DataColumn("Maximum Heart Rate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMaximum_Heart_Rate);
@@ -572,15 +572,16 @@ namespace HW5HealthRecords {
                                 this.columnPatient_ID}, true));
                 this.columnPatient_ID.AllowDBNull = false;
                 this.columnPatient_ID.Unique = true;
-                this.columnFirst_Name.MaxLength = 10;
-                this.columnLast_Name.MaxLength = 10;
-                this.columnBirth_Date.MaxLength = 10;
-                this.columnAddress.MaxLength = 10;
-                this.columnCity.MaxLength = 10;
-                this.columnState.MaxLength = 10;
-                this.columnPhone_Number.MaxLength = 10;
-                this.columnMaximum_Heart_Rate.MaxLength = 10;
-                this.columnTarget_Heart_Rate_Range.MaxLength = 10;
+                this.columnFirst_Name.MaxLength = 50;
+                this.columnLast_Name.MaxLength = 50;
+                this.columnBirth_Date.MaxLength = 50;
+                this.columnAddress.MaxLength = 50;
+                this.columnCity.MaxLength = 50;
+                this.columnState.MaxLength = 50;
+                this.columnPhone_Number.MaxLength = 50;
+                this.columnBMI.MaxLength = 50;
+                this.columnMaximum_Heart_Rate.MaxLength = 50;
+                this.columnTarget_Heart_Rate_Range.MaxLength = 50;
                 this.ExtendedProperties.Add("Generator_RowClassName", "TableRow");
                 this.ExtendedProperties.Add("Generator_RowEvArgName", "TableRowChangeEvent");
                 this.ExtendedProperties.Add("Generator_RowEvHandlerName", "TableRowChangeEventHandler");
@@ -885,10 +886,10 @@ namespace HW5HealthRecords {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal BMI {
+            public string BMI {
                 get {
                     try {
-                        return ((decimal)(this[this.tableTable.BMIColumn]));
+                        return ((string)(this[this.tableTable.BMIColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'BMI\' in table \'Table\' is DBNull.", e);
@@ -1273,7 +1274,7 @@ namespace HW5HealthRecords.PatientsInfoDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Phone_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Number", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BMI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BMI", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BMI", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "BMI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BMI", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BMI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Maximum_Heart_Rate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maximum Heart Rate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Maximum_Heart_Rate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maximum Heart Rate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Target_Heart_Rate_Range", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Target Heart Rate Range", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1293,7 +1294,7 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zip_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zip Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BMI", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "BMI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BMI", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BMI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maximum_Heart_Rate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maximum Heart Rate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Target_Heart_Rate_Range", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Target Heart Rate Range", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -1332,7 +1333,7 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zip_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zip Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BMI", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "BMI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BMI", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BMI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maximum_Heart_Rate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maximum Heart Rate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Target_Heart_Rate_Range", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Target Heart Rate Range", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Patient_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patient ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1355,7 +1356,7 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Phone_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Number", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BMI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BMI", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BMI", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "BMI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BMI", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BMI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Maximum_Heart_Rate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maximum Heart Rate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Maximum_Heart_Rate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maximum Heart Rate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Target_Heart_Rate_Range", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Target Heart Rate Range", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1438,7 +1439,7 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Patient_ID, string Original_First_Name, string Original_Last_Name, string Original_Birth_Date, global::System.Nullable<int> Original_Age, string Original_Address, string Original_City, string Original_State, global::System.Nullable<int> Original_Zip_Code, string Original_Phone_Number, global::System.Nullable<decimal> Original_BMI, string Original_Maximum_Heart_Rate, string Original_Target_Heart_Rate_Range) {
+        public virtual int Delete(int Original_Patient_ID, string Original_First_Name, string Original_Last_Name, string Original_Birth_Date, global::System.Nullable<int> Original_Age, string Original_Address, string Original_City, string Original_State, global::System.Nullable<int> Original_Zip_Code, string Original_Phone_Number, string Original_BMI, string Original_Maximum_Heart_Rate, string Original_Target_Heart_Rate_Range) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Patient_ID));
             if ((Original_First_Name == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -1512,13 +1513,13 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_Phone_Number));
             }
-            if ((Original_BMI.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((decimal)(Original_BMI.Value));
-            }
-            else {
+            if ((Original_BMI == null)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_BMI));
             }
             if ((Original_Maximum_Heart_Rate == null)) {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
@@ -1556,7 +1557,7 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Patient_ID, string First_Name, string Last_Name, string Birth_Date, global::System.Nullable<int> Age, string Address, string City, string State, global::System.Nullable<int> Zip_Code, string Phone_Number, global::System.Nullable<decimal> BMI, string Maximum_Heart_Rate, string Target_Heart_Rate_Range) {
+        public virtual int Insert(int Patient_ID, string First_Name, string Last_Name, string Birth_Date, global::System.Nullable<int> Age, string Address, string City, string State, global::System.Nullable<int> Zip_Code, string Phone_Number, string BMI, string Maximum_Heart_Rate, string Target_Heart_Rate_Range) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Patient_ID));
             if ((First_Name == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1612,11 +1613,11 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Phone_Number));
             }
-            if ((BMI.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(BMI.Value));
+            if ((BMI == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(BMI));
             }
             if ((Maximum_Heart_Rate == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
@@ -1661,7 +1662,7 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
                     string State, 
                     global::System.Nullable<int> Zip_Code, 
                     string Phone_Number, 
-                    global::System.Nullable<decimal> BMI, 
+                    string BMI, 
                     string Maximum_Heart_Rate, 
                     string Target_Heart_Rate_Range, 
                     int Original_Patient_ID, 
@@ -1674,7 +1675,7 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
                     string Original_State, 
                     global::System.Nullable<int> Original_Zip_Code, 
                     string Original_Phone_Number, 
-                    global::System.Nullable<decimal> Original_BMI, 
+                    string Original_BMI, 
                     string Original_Maximum_Heart_Rate, 
                     string Original_Target_Heart_Rate_Range) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Patient_ID));
@@ -1732,11 +1733,11 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Phone_Number));
             }
-            if ((BMI.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(BMI.Value));
+            if ((BMI == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(BMI));
             }
             if ((Maximum_Heart_Rate == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
@@ -1823,13 +1824,13 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Phone_Number));
             }
-            if ((Original_BMI.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((decimal)(Original_BMI.Value));
-            }
-            else {
+            if ((Original_BMI == null)) {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_BMI));
             }
             if ((Original_Maximum_Heart_Rate == null)) {
                 this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
@@ -1877,7 +1878,7 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
                     string State, 
                     global::System.Nullable<int> Zip_Code, 
                     string Phone_Number, 
-                    global::System.Nullable<decimal> BMI, 
+                    string BMI, 
                     string Maximum_Heart_Rate, 
                     string Target_Heart_Rate_Range, 
                     int Original_Patient_ID, 
@@ -1890,7 +1891,7 @@ SELECT [Patient ID], [First Name], [Last Name], [Birth Date], Age, Address, City
                     string Original_State, 
                     global::System.Nullable<int> Original_Zip_Code, 
                     string Original_Phone_Number, 
-                    global::System.Nullable<decimal> Original_BMI, 
+                    string Original_BMI, 
                     string Original_Maximum_Heart_Rate, 
                     string Original_Target_Heart_Rate_Range) {
             return this.Update(Original_Patient_ID, First_Name, Last_Name, Birth_Date, Age, Address, City, State, Zip_Code, Phone_Number, BMI, Maximum_Heart_Rate, Target_Heart_Rate_Range, Original_Patient_ID, Original_First_Name, Original_Last_Name, Original_Birth_Date, Original_Age, Original_Address, Original_City, Original_State, Original_Zip_Code, Original_Phone_Number, Original_BMI, Original_Maximum_Heart_Rate, Original_Target_Heart_Rate_Range);

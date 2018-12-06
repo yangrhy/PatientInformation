@@ -11,6 +11,7 @@ namespace HW5HealthRecords
         public string fName { get; set; }
         public string lName { get; set; }
         public string gender { get; set; }
+        public string birthDate { get; set; }
         public int birthMonth { get; set; }
         public int birthDay { get; set; }
         public int birthYear { get; set; }

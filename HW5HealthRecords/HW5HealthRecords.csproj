@@ -68,10 +68,10 @@
       <DependentUpon>PatientNewEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="Patient.cs" />
-    <Compile Include="PatientsInfoDataSet.Designer.cs">
+    <Compile Include="PatientsInfoDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PatientsInfoDataSet.xsd</DependentUpon>
+      <DependentUpon>PatientsInfoDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="PatientTable.cs">
       <SubType>Form</SubType>
@@ -97,16 +97,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="PatientsInfoDataSet.xsc">
-      <DependentUpon>PatientsInfoDataSet.xsd</DependentUpon>
+    <None Include="PatientsInfoDataSet1.xsc">
+      <DependentUpon>PatientsInfoDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="PatientsInfoDataSet.xsd">
+    <None Include="PatientsInfoDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PatientsInfoDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>PatientsInfoDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PatientsInfoDataSet.xss">
-      <DependentUpon>PatientsInfoDataSet.xsd</DependentUpon>
+    <None Include="PatientsInfoDataSet1.xss">
+      <DependentUpon>PatientsInfoDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

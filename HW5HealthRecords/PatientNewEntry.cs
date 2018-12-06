@@ -31,14 +31,22 @@ namespace HW5HealthRecords
 
         private void ResetForm()
         {
-            PatientNewEntry newPatientEntry = new PatientNewEntry();
-            newPatientEntry.Show();
-            this.Dispose(false);
+            firstNameTextBox.ResetText();
+            lastNameTextBox.ResetText();
+            addressTextBox.ResetText();
+            cityTextBox.ResetText();
+            statesComboBox.ResetText();
+            zipCodeTextBox.ResetText();
+            phoneNumMaskedTextBox.ResetText();
+            dateTimePicker1.ResetText();
+            heightMaskedTextBox.ResetText();
+            weightMaskedTextBox.ResetText();
         }
 
         // create new patient with information from textboxes
         private void CreateNewPatient()
         {
+
             Patient newPatient = new Patient();
             newPatient.ID = 1 + patientList.Count();
             newPatient.fName = firstNameTextBox.Text;
@@ -52,8 +60,9 @@ namespace HW5HealthRecords
             newPatient.weight = double.Parse(weightMaskedTextBox.Text);
             newPatient.setBMI(newPatient.height, newPatient.weight);
 
+            // get date of birth
+            newPatient.birthDate = dateTimePicker1.Text;
             string[] birthDate = dateTimePicker1.Text.Split('/');
-
             newPatient.birthMonth = int.Parse(birthDate[0]);
             newPatient.birthDay = int.Parse(birthDate[1]);
             newPatient.birthYear = int.Parse(birthDate[2]);
@@ -99,14 +108,39 @@ namespace HW5HealthRecords
             try
             {
                 CreateNewPatient();
+                // indicate success of added patient info
+                MessageBox.Show("Patient Information Added.");
             }
             catch
             {
                 MessageBox.Show("An error occured, check to see if form was completed.");
             }
 
-            // indicate success of added patient info
-            MessageBox.Show("Patient Information Added.");
+            foreach(Patient p in patientList)
+            {
+                SqlConnection con = new SqlConnection
+               ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Table]" +
+
+                    "([Patient ID], [First Name], [Last Name], [Birth Date], [Age], [Address], [City], [State], [Zip Code], [Phone Number], [BMI], [Maximum Heart Rate], [Target Heart Rate Range])" +
+                    " VALUES(@ID, @fName, @lName, @bDate, @age, @address, @city, @state, @zip, @pNum, @bmi, @maxHR, @targetHR)", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@ID", p.ID);
+                cmd.Parameters.AddWithValue("@fName", p.fName);
+                cmd.Parameters.AddWithValue("@lName", p.lName);
+                cmd.Parameters.AddWithValue("@bDate", p.birthDate);
+                cmd.Parameters.AddWithValue("@age", p.age);
+                cmd.Parameters.AddWithValue("@address", p.address);
+                cmd.Parameters.AddWithValue("@city", p.city);
+                cmd.Parameters.AddWithValue("@state", p.state);
+                cmd.Parameters.AddWithValue("@zip", p.zip);
+                cmd.Parameters.AddWithValue("@pNum", p.phoneNumber);
+                cmd.Parameters.AddWithValue("@bmi", p.getBMI(p.BMI));
+                cmd.Parameters.AddWithValue("@maxHR", p.maxHeartRate);
+                cmd.Parameters.AddWithValue("@targetHR", p.targetHeartRate);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
 
             ResetForm();
         }
