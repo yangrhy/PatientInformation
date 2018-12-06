@@ -18,20 +18,20 @@ namespace HW5HealthRecords
         public double height { get; set; }
         public double weight { get; set; }
         public double BMI { get; set; }
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string address { get; set; }
         public string city { get; set; }
         public string state { get; set; }
-        public string zip { get; set; }
+        public int zip { get; set; }
         public string phoneNumber { get; set; }
-        public double maxHeartRate { get; set; }
+        public int maxHeartRate { get; set; }
         public string targetHeartRate { get; set; }
 
-        public void setBirthDate(int year, int month, int day)
+        public void setAge(int year, int month, int day)
         {
             DateTime birthday = new DateTime(year, month, day);
 
-            this.age = (int)Math.Floor((DateTime.Now - birthday).TotalDays/365.25);
+            this.age = (int)Math.Floor((DateTime.Now.Subtract(birthday)).TotalDays/365.25);
         }
 
         public void setBMI (double weight, double height)
@@ -39,33 +39,34 @@ namespace HW5HealthRecords
             this.BMI = (weight * 703) / (height * height); 
         }
 
-        public string getBMI()
+        // get BMI string to place into chart
+        public string getBMI(double bmi)
         {
             string bmiValue = string.Empty;
 
-            if (this.BMI < 18.5)
+            if (bmi < 18.5)
             {
-                bmiValue = this.BMI + ": Underweight";
+                bmiValue = bmi + ": Underweight";
             }
-            else if (this.BMI >= 18.5 && this.BMI < 25)
+            else if (bmi >= 18.5 && bmi < 25)
             {
                 bmiValue = this.BMI + ": Normal";
             }
-            else if (this.BMI >= 25 && this.BMI < 30)
+            else if (bmi >= 25 && bmi < 30)
             {
-                bmiValue = this.BMI + ": Overweight";
+                bmiValue = bmi + ": Overweight";
             }
-            else if (this.BMI > 30)
+            else if (bmi > 30)
             {
-                bmiValue = this.BMI + ": Obese";
+                bmiValue = bmi + ": Obese";
             }
 
             return bmiValue;
         }
 
-        public void setMaxHeartRate()
+        public void setMaxHeartRate(int age)
         {
-            this.maxHeartRate = (220 - this.age);
+            this.maxHeartRate = (220 - age);
         }
 
         public void setTargetHeartRange()

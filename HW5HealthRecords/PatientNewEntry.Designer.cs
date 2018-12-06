@@ -50,10 +50,10 @@
             this.phoneNumMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.weightMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.heightMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lastNameTextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.firstNameTextBox, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(93, 105);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(93, 78);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -149,7 +149,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Britannic Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(311, 68);
+            this.label3.Location = new System.Drawing.Point(311, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(192, 23);
             this.label3.TabIndex = 2;
@@ -171,7 +171,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label6, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.zipCodeTextBox, 3, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(93, 185);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(93, 158);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -280,7 +280,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.phoneNumMaskedTextBox, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label8, 0, 1);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(93, 263);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(93, 236);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -305,7 +305,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.dateOfBirthMaskedTextBox, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(315, 263);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(315, 236);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -320,17 +320,26 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Controls.Add(this.weightMaskedTextBox, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label9, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.textBox2, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 1);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(489, 263);
+            this.tableLayoutPanel5.Controls.Add(this.heightMaskedTextBox, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(489, 236);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(217, 63);
             this.tableLayoutPanel5.TabIndex = 20;
+            // 
+            // weightMaskedTextBox
+            // 
+            this.weightMaskedTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.weightMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightMaskedTextBox.Location = new System.Drawing.Point(111, 3);
+            this.weightMaskedTextBox.Name = "weightMaskedTextBox";
+            this.weightMaskedTextBox.Size = new System.Drawing.Size(103, 26);
+            this.weightMaskedTextBox.TabIndex = 12;
             // 
             // label9
             // 
@@ -343,24 +352,6 @@
             this.label9.TabIndex = 10;
             this.label9.Text = "Weight (lbs)";
             // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(111, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(103, 26);
-            this.textBox1.TabIndex = 8;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(3, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(102, 26);
-            this.textBox2.TabIndex = 7;
-            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -372,11 +363,20 @@
             this.label11.TabIndex = 9;
             this.label11.Text = "Height (in)";
             // 
+            // heightMaskedTextBox
+            // 
+            this.heightMaskedTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.heightMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heightMaskedTextBox.Location = new System.Drawing.Point(3, 3);
+            this.heightMaskedTextBox.Name = "heightMaskedTextBox";
+            this.heightMaskedTextBox.Size = new System.Drawing.Size(102, 26);
+            this.heightMaskedTextBox.TabIndex = 11;
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.AliceBlue;
             this.button1.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(323, 342);
+            this.button1.Location = new System.Drawing.Point(568, 315);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(138, 47);
             this.button1.TabIndex = 21;
@@ -388,7 +388,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.AliceBlue;
             this.button2.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(93, 342);
+            this.button2.Location = new System.Drawing.Point(93, 315);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(138, 47);
             this.button2.TabIndex = 22;
@@ -400,7 +400,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.AliceBlue;
             this.button3.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(568, 342);
+            this.button3.Location = new System.Drawing.Point(330, 315);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(138, 47);
             this.button3.TabIndex = 23;
@@ -465,12 +465,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.MaskedTextBox weightMaskedTextBox;
+        private System.Windows.Forms.MaskedTextBox heightMaskedTextBox;
     }
 }
 

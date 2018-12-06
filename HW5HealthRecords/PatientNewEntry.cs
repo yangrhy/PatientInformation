@@ -9,11 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using System.Data.SqlClient;
 
 namespace HW5HealthRecords
 {
     public partial class PatientNewEntry : Form
     {
+
+        List<Patient> patientList = new List<Patient>();
+
         public PatientNewEntry()
         {
             InitializeComponent();
@@ -51,7 +55,28 @@ namespace HW5HealthRecords
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             Patient newPatient = new Patient();
+            newPatient.ID = 1 + patientList.Count();
+            newPatient.fName = firstNameTextBox.Text;
+            newPatient.lName = lastNameTextBox.Text;
+            newPatient.address = addressTextBox.Text;
+            newPatient.city = cityTextBox.Text;
+            newPatient.state = statesComboBox.SelectedText;
+            newPatient.zip = int.Parse(zipCodeTextBox.Text);
+            newPatient.phoneNumber = phoneNumMaskedTextBox.Text;
+            newPatient.height = double.Parse(heightMaskedTextBox.Text);
+            newPatient.weight = double.Parse(weightMaskedTextBox.Text);
+            newPatient.setBMI(newPatient.height, newPatient.weight);
+
+            string[] birthDate = dateOfBirthMaskedTextBox.Text.Split('/');
+
+            newPatient.birthMonth = int.Parse(birthDate[0]);
+            newPatient.birthDay = int.Parse(birthDate[1]);
+            newPatient.birthYear = int.Parse(birthDate[2]);
+
+            // set age for new patient
+            newPatient.setAge(newPatient.birthYear, newPatient.birthMonth, newPatient.birthDay);
         }
     }
 }
