@@ -34,7 +34,6 @@
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateOfBirthMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.statesComboBox = new System.Windows.Forms.ComboBox();
@@ -57,6 +56,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -133,17 +133,6 @@
             this.label10.Size = new System.Drawing.Size(99, 17);
             this.label10.TabIndex = 15;
             this.label10.Text = "Date of Birth";
-            // 
-            // dateOfBirthMaskedTextBox
-            // 
-            this.dateOfBirthMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateOfBirthMaskedTextBox.Location = new System.Drawing.Point(3, 3);
-            this.dateOfBirthMaskedTextBox.Mask = "00/00/0000";
-            this.dateOfBirthMaskedTextBox.Name = "dateOfBirthMaskedTextBox";
-            this.dateOfBirthMaskedTextBox.Size = new System.Drawing.Size(143, 26);
-            this.dateOfBirthMaskedTextBox.TabIndex = 16;
-            this.dateOfBirthMaskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dateOfBirthMaskedTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // label3
             // 
@@ -303,8 +292,8 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.dateOfBirthMaskedTextBox, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.dateTimePicker1, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(315, 236);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
@@ -408,6 +397,19 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 3);
+            this.dateTimePicker1.MaxDate = new System.DateTime(2018, 12, 6, 0, 0, 0, 0);
+            this.dateTimePicker1.MinDate = new System.DateTime(1860, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(147, 26);
+            this.dateTimePicker1.TabIndex = 25;
+            this.dateTimePicker1.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            // 
             // PatientNewEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -459,7 +461,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.MaskedTextBox phoneNumMaskedTextBox;
-        private System.Windows.Forms.MaskedTextBox dateOfBirthMaskedTextBox;
         private System.Windows.Forms.ComboBox statesComboBox;
         private System.Windows.Forms.MaskedTextBox zipCodeTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -471,6 +472,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.MaskedTextBox weightMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox heightMaskedTextBox;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 

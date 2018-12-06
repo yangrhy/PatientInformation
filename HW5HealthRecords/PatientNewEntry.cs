@@ -26,6 +26,46 @@ namespace HW5HealthRecords
         private void PatientNewEntry_Load(object sender, EventArgs e)
         {
             GetListOfStates();
+            statesComboBox.SelectedIndex = 0;
+        }
+
+        private void ResetForm()
+        {
+            PatientNewEntry newPatientEntry = new PatientNewEntry();
+            newPatientEntry.Show();
+            this.Dispose(false);
+        }
+
+        // create new patient with information from textboxes
+        private void CreateNewPatient()
+        {
+            Patient newPatient = new Patient();
+            newPatient.ID = 1 + patientList.Count();
+            newPatient.fName = firstNameTextBox.Text;
+            newPatient.lName = lastNameTextBox.Text;
+            newPatient.address = addressTextBox.Text;
+            newPatient.city = cityTextBox.Text;
+            newPatient.state = statesComboBox.SelectedText;
+            newPatient.zip = int.Parse(zipCodeTextBox.Text);
+            newPatient.phoneNumber = phoneNumMaskedTextBox.Text;
+            newPatient.height = double.Parse(heightMaskedTextBox.Text);
+            newPatient.weight = double.Parse(weightMaskedTextBox.Text);
+            newPatient.setBMI(newPatient.height, newPatient.weight);
+
+            string[] birthDate = dateTimePicker1.Text.Split('/');
+
+            newPatient.birthMonth = int.Parse(birthDate[0]);
+            newPatient.birthDay = int.Parse(birthDate[1]);
+            newPatient.birthYear = int.Parse(birthDate[2]);
+         
+            // set age for new patient
+            newPatient.setAge(newPatient.birthYear, newPatient.birthMonth, newPatient.birthDay);
+
+            newPatient.setMaxHeartRate(newPatient.age);
+            newPatient.setTargetHeartRange(newPatient.maxHeartRate);
+
+            // append to list of patients
+            patientList.Add(newPatient);
         }
 
         // add states from text file into combobox of states
@@ -56,27 +96,19 @@ namespace HW5HealthRecords
         private void button1_Click(object sender, EventArgs e)
         {
 
-            Patient newPatient = new Patient();
-            newPatient.ID = 1 + patientList.Count();
-            newPatient.fName = firstNameTextBox.Text;
-            newPatient.lName = lastNameTextBox.Text;
-            newPatient.address = addressTextBox.Text;
-            newPatient.city = cityTextBox.Text;
-            newPatient.state = statesComboBox.SelectedText;
-            newPatient.zip = int.Parse(zipCodeTextBox.Text);
-            newPatient.phoneNumber = phoneNumMaskedTextBox.Text;
-            newPatient.height = double.Parse(heightMaskedTextBox.Text);
-            newPatient.weight = double.Parse(weightMaskedTextBox.Text);
-            newPatient.setBMI(newPatient.height, newPatient.weight);
+            try
+            {
+                CreateNewPatient();
+            }
+            catch
+            {
+                MessageBox.Show("An error occured, check to see if form was completed.");
+            }
 
-            string[] birthDate = dateOfBirthMaskedTextBox.Text.Split('/');
+            // indicate success of added patient info
+            MessageBox.Show("Patient Information Added.");
 
-            newPatient.birthMonth = int.Parse(birthDate[0]);
-            newPatient.birthDay = int.Parse(birthDate[1]);
-            newPatient.birthYear = int.Parse(birthDate[2]);
-
-            // set age for new patient
-            newPatient.setAge(newPatient.birthYear, newPatient.birthMonth, newPatient.birthDay);
+            ResetForm();
         }
     }
 }

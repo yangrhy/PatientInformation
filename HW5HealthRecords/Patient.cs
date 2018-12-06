@@ -69,9 +69,9 @@ namespace HW5HealthRecords
             this.maxHeartRate = (220 - age);
         }
 
-        public void setTargetHeartRange()
+        public void setTargetHeartRange(int maxHR)
         {
-            this.targetHeartRate = $"{this.maxHeartRate * 0.5} - {this.maxHeartRate * 0.8}";
+            this.targetHeartRate = $"{maxHR * 0.5} - {maxHR * 0.8}";
         }
     }
 }
