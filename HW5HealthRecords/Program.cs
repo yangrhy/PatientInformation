@@ -16,7 +16,7 @@ namespace HW5HealthRecords
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PatientNewEntry());
+            Application.Run(new PatientTable());
         }
     }
 }

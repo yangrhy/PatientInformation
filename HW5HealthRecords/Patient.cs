@@ -37,7 +37,7 @@ namespace HW5HealthRecords
 
         public void setBMI (double weight, double height)
         {
-            this.BMI = (weight * 703) / (height * height); 
+            this.BMI = ((weight * 703) / (height * height)); 
         }
 
         // get BMI string to place into chart
@@ -47,19 +47,19 @@ namespace HW5HealthRecords
 
             if (bmi < 18.5)
             {
-                bmiValue = bmi + ": Underweight";
+                bmiValue = string.Format("{0:#.##}", bmi) + " : Underweight";
             }
             else if (bmi >= 18.5 && bmi < 25)
             {
-                bmiValue = this.BMI + ": Normal";
+                bmiValue = string.Format("{0:#.##}", bmi) + ": Normal";
             }
             else if (bmi >= 25 && bmi < 30)
             {
-                bmiValue = bmi + ": Overweight";
+                bmiValue = string.Format("{0:#.##}", bmi) + ": Overweight";
             }
             else if (bmi > 30)
             {
-                bmiValue = bmi + ": Obese";
+                bmiValue = string.Format("{0:#.##}", bmi) + ": Obese";
             }
 
             return bmiValue;

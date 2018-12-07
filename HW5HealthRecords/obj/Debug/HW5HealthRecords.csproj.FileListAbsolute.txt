@@ -11,3 +11,8 @@ C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5Heal
 C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.pdb
 C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.PatientTable.resources
 C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.PatientNewEntry.resources
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\bin\Debug\EntityFramework.dll
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\bin\Debug\EntityFramework.xml
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Huechi\source\repos\HW5HealthRecords\HW5HealthRecords\obj\Debug\HW5HealthRecords.csproj.CopyComplete

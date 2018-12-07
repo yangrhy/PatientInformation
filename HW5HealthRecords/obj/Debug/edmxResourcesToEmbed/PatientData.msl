@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PatientsInfoModelStoreContainer" CdmEntityContainer="PatientsInfoEntities1">
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="PatientsInfoModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Patient_ID" ColumnName="Patient ID" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="Birth_Date" ColumnName="Birth Date" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+          <ScalarProperty Name="BMI" ColumnName="BMI" />
+          <ScalarProperty Name="Maximum_Heart_Rate" ColumnName="Maximum Heart Rate" />
+          <ScalarProperty Name="Target_Heart_Rate_Range" ColumnName="Target Heart Rate Range" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

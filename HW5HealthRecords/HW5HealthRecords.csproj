@@ -48,8 +48,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,10 +77,10 @@
       <DependentUpon>PatientNewEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="Patient.cs" />
-    <Compile Include="PatientsInfoDataSet1.Designer.cs">
+    <Compile Include="PatientsInfoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PatientsInfoDataSet1.xsd</DependentUpon>
+      <DependentUpon>PatientsInfoDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="PatientTable.cs">
       <SubType>Form</SubType>
@@ -97,17 +106,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="PatientsInfoDataSet1.xsc">
-      <DependentUpon>PatientsInfoDataSet1.xsd</DependentUpon>
+    <None Include="packages.config" />
+    <None Include="PatientsInfoDataSet.xsc">
+      <DependentUpon>PatientsInfoDataSet.xsd</DependentUpon>
     </None>
-    <None Include="PatientsInfoDataSet1.xsd">
+    <None Include="PatientsInfoDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PatientsInfoDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>PatientsInfoDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PatientsInfoDataSet1.xss">
-      <DependentUpon>PatientsInfoDataSet1.xsd</DependentUpon>
+    <None Include="PatientsInfoDataSet.xss">
+      <DependentUpon>PatientsInfoDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\PatientsInfoDataSet.datasource" />
+    <None Include="Properties\DataSources\PatientsInfoDataSet.TableDataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -145,6 +157,9 @@
       <DependentUpon>PatientsInfo.mdf</DependentUpon>
     </Content>
     <None Include="Resources\States.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
