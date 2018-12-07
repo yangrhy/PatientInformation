@@ -40,26 +40,46 @@ namespace HW5HealthRecords
             phoneNumMaskedTextBox.ResetText();
             dateTimePicker1.ResetText();
             heightMaskedTextBox.ResetText();
-            weightMaskedTextBox.ResetText();
+            weightMaskedTextBox.ResetText();           
+
         }
 
+        // add to patient to database
+        private void AddPatientToDatabase(Patient p)
+        {
+            SqlConnection con = new SqlConnection
+               ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Table]" +
+
+                "([Patient ID], [First Name], [Last Name], [Birth Date], [Age], [Address], [City], [State], [Zip Code], [Phone Number], [BMI], [Maximum Heart Rate], [Target Heart Rate Range])" +
+                " VALUES(@ID, @fName, @lName, @bDate, @age, @address, @city, @state, @zip, @pNum, @bmi, @maxHR, @targetHR)", con);
+            con.Open();
+            cmd.Parameters.AddWithValue("@ID", p.ID);
+            cmd.Parameters.AddWithValue("@fName", p.fName);
+            cmd.Parameters.AddWithValue("@lName", p.lName);
+            cmd.Parameters.AddWithValue("@bDate", p.birthDate);
+            cmd.Parameters.AddWithValue("@age", p.age);
+            cmd.Parameters.AddWithValue("@address", p.address);
+            cmd.Parameters.AddWithValue("@city", p.city);
+            cmd.Parameters.AddWithValue("@state", p.state);
+            cmd.Parameters.AddWithValue("@zip", p.zip);
+            cmd.Parameters.AddWithValue("@pNum", p.phoneNumber);
+            cmd.Parameters.AddWithValue("@bmi", p.getBMI(p.BMI));
+            cmd.Parameters.AddWithValue("@maxHR", p.maxHeartRate);
+            cmd.Parameters.AddWithValue("@targetHR", p.targetHeartRate);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
         // create new patient with information from textboxes
         private void CreateNewPatient()
         {
 
+            Random rand = new Random();
+            int randomInt = 1 + rand.Next(1000, 10000);
+
             Patient newPatient = new Patient();
-
-            string stmt = "SELECT COUNT(*) FROM [dbo].[Table]";
-
-            using (SqlConnection thisConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf; Integrated Security = True; Connect Timeout = 30"))
-            {
-                using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
-                {
-                    thisConnection.Open();
-                    newPatient.ID = 1 + (int)cmdCount.ExecuteScalar();
-                }
-            }
-
+          
+            newPatient.ID = randomInt;
             newPatient.fName = firstNameTextBox.Text;
             newPatient.lName = lastNameTextBox.Text;
             newPatient.address = addressTextBox.Text;
@@ -84,8 +104,7 @@ namespace HW5HealthRecords
             newPatient.setMaxHeartRate(newPatient.age);
             newPatient.setTargetHeartRange(newPatient.maxHeartRate);
 
-            // append to list of patients
-            patientList.Add(newPatient);
+            AddPatientToDatabase(newPatient);
         }
 
         // add states from text file into combobox of states
@@ -125,40 +144,7 @@ namespace HW5HealthRecords
             {
                 MessageBox.Show("An error occured, check to see if form was completed.");
             }
-
-            try
-            {
-                foreach (Patient p in patientList)
-                {
-                    SqlConnection con = new SqlConnection
-                   ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
-                    SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Table]" +
-
-                        "([Patient ID], [First Name], [Last Name], [Birth Date], [Age], [Address], [City], [State], [Zip Code], [Phone Number], [BMI], [Maximum Heart Rate], [Target Heart Rate Range])" +
-                        " VALUES(@ID, @fName, @lName, @bDate, @age, @address, @city, @state, @zip, @pNum, @bmi, @maxHR, @targetHR)", con);
-                    con.Open();
-                    cmd.Parameters.AddWithValue("@ID", p.ID);
-                    cmd.Parameters.AddWithValue("@fName", p.fName);
-                    cmd.Parameters.AddWithValue("@lName", p.lName);
-                    cmd.Parameters.AddWithValue("@bDate", p.birthDate);
-                    cmd.Parameters.AddWithValue("@age", p.age);
-                    cmd.Parameters.AddWithValue("@address", p.address);
-                    cmd.Parameters.AddWithValue("@city", p.city);
-                    cmd.Parameters.AddWithValue("@state", p.state);
-                    cmd.Parameters.AddWithValue("@zip", p.zip);
-                    cmd.Parameters.AddWithValue("@pNum", p.phoneNumber);
-                    cmd.Parameters.AddWithValue("@bmi", p.getBMI(p.BMI));
-                    cmd.Parameters.AddWithValue("@maxHR", p.maxHeartRate);
-                    cmd.Parameters.AddWithValue("@targetHR", p.targetHeartRate);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-            catch
-            {
-                MessageBox.Show("An error occured.");
-            }
-
+         
             ResetForm();
         }
 

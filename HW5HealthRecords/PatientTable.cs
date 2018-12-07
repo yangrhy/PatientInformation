@@ -45,28 +45,70 @@ namespace HW5HealthRecords
         {
             PatientNewEntry newEntry = new PatientNewEntry();
             newEntry.ShowDialog();
+            UpdateTable();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             UpdateTable();
         }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
-            String strConnection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30";
+            try
+            {
+                var row = dataGridView1.CurrentCell.RowIndex;
+                var col = dataGridView1.CurrentCell.ColumnIndex;
 
-            SqlConnection con = new SqlConnection(strConnection);
+                var id = dataGridView1.Rows[row].Cells[0].Value;
 
-            SqlCommand sqlCmd = new SqlCommand();
-            sqlCmd.Connection = con;
-            sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "Select * from [dbo].[Table]";
-            SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
-            
-            DataTable dtRecord = new DataTable();
-            sqlDataAdap.Fill(dtRecord);
-            dataGridView1.DataSource = dtRecord;
+                var value = textBox1.Text;
+
+                var columnName = dataGridView1.CurrentCell.OwningColumn.HeaderText;
+
+                SqlConnection con = new SqlConnection
+                       ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Table] SET [" + columnName + "]=" + "'" + value + "'" + "WHERE [Patient ID]=" + id, con);
+                con.Open();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    MessageBox.Show("You've entered an invalid input");
+                }
+                con.Close();
+                UpdateTable();
+            }
+            catch
+            {
+                MessageBox.Show("Nothing to edit!");
+            }
+            textBox1.ResetText();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var row = dataGridView1.CurrentCell.RowIndex;
+                var id = dataGridView1.Rows[row].Cells[0].Value;
+
+                SqlConnection con = new SqlConnection
+                       ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlCommand cmd = new SqlCommand("DELETE FROM [dbo].[Table] WHERE [Patient ID]=" + id, con);
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+                UpdateTable();
+            }
+            catch
+            {
+                MessageBox.Show("Nothing to delete!");
+
+            }
         }
     }
 }
