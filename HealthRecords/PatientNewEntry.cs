@@ -47,8 +47,9 @@ namespace HW5HealthRecords
         // add to patient to database
         private void AddPatientToDatabase(Patient p)
         {
+            // must update connection string to correct file location to work correctly
             SqlConnection con = new SqlConnection
-               ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
+               ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\PatientInformation\\HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
             SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Table]" +
 
                 "([Patient ID], [First Name], [Last Name], [Birth Date], [Age], [Address], [City], [State], [Zip Code], [Phone Number], [BMI], [Maximum Heart Rate], [Target Heart Rate Range])" +
@@ -134,18 +135,19 @@ namespace HW5HealthRecords
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // creates new patient information and adds it to the database
             try
             {
                 CreateNewPatient();
                 // indicate success of added patient info
                 MessageBox.Show("Patient Information Added.");
+                // reset form only if successfully added to avoid having to refill information
+                ResetForm();
             }
             catch
             {
                 MessageBox.Show("An error occured, check to see if form was completed.");
-            }
-         
-            ResetForm();
+            }       
         }
 
         private void button3_Click_1(object sender, EventArgs e)

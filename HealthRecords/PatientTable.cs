@@ -21,7 +21,8 @@ namespace HW5HealthRecords
 
         private void UpdateTable()
         {
-            String strConnection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30";
+            //connection string must be updated to correct file location to work
+            String strConnection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\PatientInformation\\HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30";
 
             SqlConnection con = new SqlConnection(strConnection);
 
@@ -66,8 +67,9 @@ namespace HW5HealthRecords
 
                 var columnName = dataGridView1.CurrentCell.OwningColumn.HeaderText;
 
+                //connection string must be updated to correct file location to work
                 SqlConnection con = new SqlConnection
-                       ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
+                       ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\PatientInformation\\HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Table] SET [" + columnName + "]=" + "'" + value + "'" + "WHERE [Patient ID]=" + id, con);
                 con.Open();
                 try
@@ -95,8 +97,9 @@ namespace HW5HealthRecords
                 var row = dataGridView1.CurrentCell.RowIndex;
                 var id = dataGridView1.Rows[row].Cells[0].Value;
 
+                //connection string must be updated to correct file location to work
                 SqlConnection con = new SqlConnection
-                       ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\HW5HealthRecords\\HW5HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
+                       ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Huechi\\source\\repos\\PatientInformation\\HealthRecords\\PatientsInfo.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlCommand cmd = new SqlCommand("DELETE FROM [dbo].[Table] WHERE [Patient ID]=" + id, con);
                 con.Open();
 
