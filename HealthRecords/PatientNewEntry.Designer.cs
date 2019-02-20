@@ -1,4 +1,4 @@
-﻿namespace HW5HealthRecords
+﻿namespace HealthRecords
 {
     partial class PatientNewEntry
     {

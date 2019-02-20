@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Data.SqlClient;
 
-namespace HW5HealthRecords
+namespace HealthRecords
 {
     public partial class PatientNewEntry : Form
     {
